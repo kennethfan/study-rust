@@ -15,12 +15,11 @@ async fn main() {
         .route("/", get(|| async { "Hello Blog API" }))
         .merge(routes::create_routes());
 
-    let addr = "0.0.0.0:3000".parse().unwrap();
+    let addr: std::net::SocketAddr = "0.0.0.0:3000".parse().unwrap();
     tracing::info!("🚀 Server running at http://{}", addr);
 
-    axum::Server::bind(&addr)
-        .serve(app.into_make_service())
-        .await
-        .unwrap();
+    // 使用 tokio 的 TcpListener
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    axum::serve(listener, app).await.unwrap();
 }
 
