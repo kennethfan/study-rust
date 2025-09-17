@@ -1,0 +1,16 @@
+[workspace]
+members = [
+    "crates/todo-cli",
+    "crates/downloader",
+    "crates/blog-api",
+]
+resolver = "2"
+
+[workspace.dependencies]
+base64ct = "1.8"                    # 兼容 stable Rust
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.11", features = ["blocking"] }
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+clap = "4"

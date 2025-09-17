@@ -1,0 +1,9 @@
+[toolchain]
+channel = "stable"
+components = [
+    "rustfmt",      # 代码格式化
+    "clippy",       # 静态分析
+]
+targets = [
+    "x86_64-apple-darwin"  # 根据你的平台选择
+]

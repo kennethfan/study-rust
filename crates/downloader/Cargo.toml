@@ -1,0 +1,12 @@
+[package]
+name = "downloader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+base64ct = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+reqwest = { workspace = true }
+indicatif = "0.17"
+
