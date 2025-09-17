@@ -10,7 +10,8 @@ pub fn blocking_download(url: &str) -> Result<(), String> {
         .to_string_lossy()
         .to_string();
     let mut out = File::create(filename.clone()).map_err(|e| e.to_string())?;
-    let mut content = resp.bytes().map_err(|e| e.to_string())?.as_ref();
+    let bytes = resp.bytes().map_err(|e| e.to_string())?;  // 先存储 Bytes 值
+    let mut content = bytes.as_ref();  // 再获取引用
     copy(&mut content, &mut out).map_err(|e| e.to_string())?;
     Ok(())
 }
