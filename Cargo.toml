@@ -3,6 +3,7 @@ members = [
     "crates/todo-cli",
     "crates/downloader",
     "crates/blog-api",
+    "crates/minigrep",
 ]
 resolver = "2"
 
