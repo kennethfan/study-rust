@@ -6,6 +6,7 @@ use futures::StreamExt;
 use std::env;
 use std::io::Read;
 use std::time::Duration;
+use async_std::task::spawn;
 
 static mut WEB_ROOT: String = String::new();
 
@@ -20,7 +21,8 @@ async fn main() {
     listener.incoming()
         .for_each_concurrent(None, |stream| async move {
             let stream = stream.unwrap();
-            handle_connection(stream).await;
+            // handle_connection(stream).await;
+            spawn(handle_connection(stream));
         }).await;
 }
 
