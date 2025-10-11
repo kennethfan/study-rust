@@ -15,5 +15,8 @@ base_path=$(dirname $(dirname $0))
 #cargo run -p todo-cli -- list
 
 
-cargo run -p minigrep -- "rust" ${base_path}/data/sample111.txt
-cargo run -p minigrep -- "们" ${base_path}/data/sample.txt
+#cargo run -p minigrep -- "rust" ${base_path}/data/sample111.txt
+#cargo run -p minigrep -- "们" ${base_path}/data/sample.txt
+
+export WEB_ROOT=${base_path}/data/
+cargo run -p single-thread-web-server
