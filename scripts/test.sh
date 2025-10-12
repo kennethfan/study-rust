@@ -24,4 +24,5 @@ export WEB_ROOT=${base_path}/data/
 #cargo run -p multi-thread-web-server
 
 
-cargo run -p my-redis
+cargo run -p my-redis --bin server
+cargo run -p my-redis --bin client
