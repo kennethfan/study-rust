@@ -19,4 +19,6 @@ base_path=$(dirname $(dirname $0))
 #cargo run -p minigrep -- "们" ${base_path}/data/sample.txt
 
 export WEB_ROOT=${base_path}/data/
-cargo run -p single-thread-web-server
+#cargo run -p single-thread-web-server
+
+cargo run -p multi-thread-web-server
