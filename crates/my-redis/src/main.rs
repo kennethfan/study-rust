@@ -16,7 +16,12 @@ async fn main() {
 
     loop {
         let (socket, _) = listener.accept().await.unwrap();
-        process(socket).await;
+        // process(socket).await;
+        // 为每一条连接都生成一个新的任务，
+        // `socket` 的所有权将被移动到新的任务中，并在那里进行处理
+        tokio::spawn(async move {
+            process(socket).await;
+        });
     }
 }
 
